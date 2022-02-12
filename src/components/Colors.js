@@ -9,7 +9,7 @@ const Colors = ({ quantity }) => {
     const [singleColor, setSingleColor] = useState(null)
 
     const { originalState } = DataConsumer(); // boolean value
-    console.log(originalState);
+  //  console.log(originalState);
 
     const getRandomColor = () => {
         let colors = [];
@@ -36,12 +36,18 @@ const Colors = ({ quantity }) => {
         getRandomColor2(quantity)
     }, [quantity, originalState])
 
+    ///////////////
+  //   useEffect(() => {
+  //     getRandomColor2(quantity)
+  // }, [originalState])
+
+  
 
     // pick up a single color
     useEffect(() => {
 
        setSingleColor(colors[Math.ceil(Math.random() * colors.length)])
-       console.log("single color " +  singleColor);
+    //   console.log("single color " +  singleColor);
       
     }, [quantity, colors])
 
@@ -60,13 +66,13 @@ const Colors = ({ quantity }) => {
 
     }
 
-   const goToStartGame = (originalState) => {
-      if (originalState) {
-        getRandomColor2()
+  //  const goToStartGame = (originalState) => {
+  //     if (originalState) {
+  //       getRandomColor2()
         
-      }
+  //     }
     
-    }
+  //   }
 
 
   return (

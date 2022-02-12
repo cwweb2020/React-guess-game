@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Colors from "../components/Colors";
 import Navbar from "../components/Navbar";
 import { DataConsumer } from "../context/DataProvider";
