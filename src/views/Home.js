@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import Colors from "../components/Colors";
 import Navbar from "../components/Navbar";
 import { DataConsumer } from "../context/DataProvider";
@@ -18,6 +18,15 @@ const Home = () => {
  const handleNewGame = () => {
     resetGame()
 }
+
+  useEffect(() => {
+   console.log("game mode");
+      
+  }, [gameMode])
+
+  ///  new game function
+
+  
 
   
   return (
