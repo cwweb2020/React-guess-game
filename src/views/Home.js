@@ -6,7 +6,7 @@ import { DataConsumer } from "../context/DataProvider";
 const Home = () => {
   const [gameMode, setGameMode] = useState("hard");
   
-  const { resetGame } = DataConsumer();
+  const { resetGame, winnerColor } = DataConsumer();
   
    
  const changeGameMode = (mode) => {
