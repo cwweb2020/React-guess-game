@@ -8,7 +8,7 @@ const Colors = ({ quantity }) => {
     const [colors, setColors] = useState([])
     const [singleColor, setSingleColor] = useState(null)
 
-    const { originalState } = DataConsumer(); // boolean value
+    const { originalState, changeWinnerColor } = DataConsumer(); // boolean value
   //  console.log(originalState);
 
     const getRandomColor = () => {
@@ -29,27 +29,24 @@ const Colors = ({ quantity }) => {
             colors.push(getRandomColor());
              
         }
+        pickaColor(colors)
        setColors(colors);
     }
 
     useEffect(() => {
         getRandomColor2(quantity)
-    }, [quantity, originalState])
-
+        /* eslint-disable */
+    }, [quantity]) // only run this effect when quantity changes
+    
+     console.log(colors, singleColor);
     ///////////////
-  //   useEffect(() => {
-  //     getRandomColor2(quantity)
-  // }, [originalState])
-
   
 
-    // pick up a single color
-    useEffect(() => {
-
-       setSingleColor(colors[Math.ceil(Math.random() * colors.length)])
-    //   console.log("single color " +  singleColor);
-      
-    }, [quantity, colors])
+     const pickaColor = (colors) => {
+         const pickedColor = colors[Math.ceil(Math.random() * colors.length - 1)];
+         setSingleColor(pickedColor)
+         changeWinnerColor(pickedColor)
+     }
 
   
  
@@ -58,22 +55,21 @@ const Colors = ({ quantity }) => {
     const handleclick = (color) => {
        console.log("color elegido " + color);
        if (color === singleColor) {
-         setColors(colors.filter(c => c === color))
+        // setColors(colors.filter(c => c === color))
+      
+         setColors(colors.map(c => c = color ))
        }else if (color !== singleColor) {
-         setColors(colors.filter(c => c !== color))
+        
+         setColors(colors.map(c => c === color ? c = "white" : c))
        }
 
 
     }
 
-  //  const goToStartGame = (originalState) => {
-  //     if (originalState) {
-  //       getRandomColor2()
-        
-  //     }
-    
-  //   }
-
+    useEffect(() => {
+        getRandomColor2(quantity)
+         /* eslint-disable */
+    }, [originalState]); // only run this effect when originalState changes
 
   return (
     <>

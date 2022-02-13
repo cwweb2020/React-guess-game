@@ -7,6 +7,7 @@ export const DataConsumer = () => useContext(DataContext);
 
 const DataProvider = ({ children }) => {
   const [originalState, setOriginalState] = useState(false);
+  const [winnerColor, setWinnerColor] = useState(null);
  // const [randomNumber, setRandomNumber] = useState(null);
   
    const resetGame = () => {
@@ -21,6 +22,9 @@ const DataProvider = ({ children }) => {
     // }
 
 
+    const changeWinnerColor = (pickedcolor) => {
+       setWinnerColor(pickedcolor);
+    }
 
 
 
@@ -30,7 +34,9 @@ const DataProvider = ({ children }) => {
     <DataContext.Provider
       value={{
         originalState,
+        winnerColor,
         resetGame,
+        changeWinnerColor
         
       }}
     >

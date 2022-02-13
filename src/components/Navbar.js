@@ -1,14 +1,14 @@
-// import { DataConsumer } from "../context/DataProvider";
+ import { DataConsumer } from "../context/DataProvider";
 
 
 const Navbar = ({ changeGameMode, handleNewGame }) => {
-  //  const { randomNumber } = DataConsumer();
+    const { winnerColor } = DataConsumer();
 
   return (
     <>
       <header>
         <h2>the color guessing game!</h2>
-        <h2 style={{ fontSize: "25px" }}>rgb(166, 247, 3)</h2>
+        <h2 style={{ fontSize: "25px" }}>{winnerColor}</h2>
         <div className="button-container">
           <button
             style={{ background: "orangered", color: "white" }}
