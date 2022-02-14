@@ -9,7 +9,7 @@ const Colors = ({ quantity }) => {
     const [colors, setColors] = useState([])
     const [singleColor, setSingleColor] = useState(null)
 
-    const { originalState, changeWinnerColor } = DataConsumer(); // boolean value
+    const { originalState, changeWinnerColor } = DataConsumer(); 
   //  console.log(originalState);
 
     const getRandomColor = () => {
@@ -60,10 +60,10 @@ const Colors = ({ quantity }) => {
       
          setColors(colors.map(c => c = color ))
           Swal.fire({
-            title: 'Correcto!',
-            text: 'Has ganado!',
+            title: 'Right!',
+            text: 'You Win!',
             icon: 'success',
-            confirmButtonText: 'Continuar'
+            confirmButtonText: 'Continue'
           })
        }else if (color !== singleColor) {
         
