@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ColorIndividual from "./ColorIndividual";
 import { DataConsumer } from "../context/DataProvider";
+import Swal from 'sweetalert2'
 
 
 
@@ -42,7 +43,7 @@ const Colors = ({ quantity }) => {
     ///////////////
   
 
-     const pickaColor = (colors) => {
+     const pickaColor = (colors) => { // pick a color from the array of colors /  
          const pickedColor = colors[Math.ceil(Math.random() * colors.length - 1)];
          setSingleColor(pickedColor)
          changeWinnerColor(pickedColor)
@@ -58,6 +59,12 @@ const Colors = ({ quantity }) => {
         // setColors(colors.filter(c => c === color))
       
          setColors(colors.map(c => c = color ))
+          Swal.fire({
+            title: 'Correcto!',
+            text: 'Has ganado!',
+            icon: 'success',
+            confirmButtonText: 'Continuar'
+          })
        }else if (color !== singleColor) {
         
          setColors(colors.map(c => c === color ? c = "white" : c))
